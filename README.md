@@ -106,8 +106,8 @@ git init
 git add .
 git commit -m "Lab 12 Final Work - complete"
 git branch -M main
-git remote add origin https://github.com/<你的用户名>/<仓库名>.git
-git push -u origin main
+git remote add origin https://github.com/1qaz-hue/devops-lab12.git
+git push -u origin main\n```\n\n```bash\n# 验证远程仓库\ngit remote -v\n# 应显示:\n# origin  https://github.com/1qaz-hue/devops-lab12.git (fetch)\n# origin  https://github.com/1qaz-hue/devops-lab12.git (push)
 ```
 
 推送后，GitHub Actions 会自动执行：
