@@ -3,35 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 12 — Personal Website</title>
+    <title>Lab 12 — Team Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="profile-section">
-            <div class="avatar">
-                <img src="photo.jpg" alt="Profile Photo" id="profilePhoto"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="avatar-placeholder" style="display:none;">
-                    <span>📷</span>
-                    <p>Add your photo as photo.jpg</p>
+        <h1 class="team-title">👥 Our Team</h1>
+        <p class="team-subtitle">Lab 12 Final Work — Basic Development and Operation</p>
+
+        <div class="team-grid">
+            <!-- Member 1: Gao Jingyuan -->
+            <div class="member-card">
+                <div class="avatar">
+                    <img src="photo.jpg" alt="Gao Jingyuan"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-placeholder" style="display:none;">
+                        <span>📷</span>
+                    </div>
+                </div>
+                <h2>Gao Jingyuan</h2>
+                <p class="member-role">高靖远</p>
+                <div class="info-card">
+                    <div class="info-item">
+                        <span class="label">Student ID</span>
+                        <span class="value">20242166</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Contribution</span>
+                        <span class="value">50%</span>
+                    </div>
                 </div>
             </div>
 
-            <h1>Gao Jingyuan</h1>
-
-            <div class="info-card">
-                <div class="info-item">
-                    <span class="label">Student ID</span>
-                    <span class="value">20242166</span>
+            <!-- Member 2: Gu Zijie -->
+            <div class="member-card">
+                <div class="avatar">
+                    <img src="photo2.jpg" alt="Gu Zijie"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-placeholder" style="display:none;">
+                        <span>📷</span>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <span class="label">University</span>
-                    <span class="value">North Minzu University</span>
-                </div>
-                <div class="info-item">
-                    <span class="label">Partner</span>
-                    <span class="value">Chiang Mai University (CAMT)</span>
+                <h2>Gu Zijie</h2>
+                <p class="member-role">顾梓杰</p>
+                <div class="info-card">
+                    <div class="info-item">
+                        <span class="label">Student ID</span>
+                        <span class="value">20242165</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Contribution</span>
+                        <span class="value">50%</span>
+                    </div>
                 </div>
             </div>
         </div>

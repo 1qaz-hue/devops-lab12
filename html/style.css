@@ -26,7 +26,113 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-/* ---- 个人头像 ---- */
+/* ---- 团队标题 ---- */
+.team-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.team-subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* ---- 双人并排 ---- */
+.team-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.member-card {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: #f8f9ff;
+    border-radius: 16px;
+    transition: transform 0.3s;
+}
+
+.member-card:hover {
+    transform: translateY(-3px);
+}
+
+.member-card .avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #667eea;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.member-card .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-card .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #f0f4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 2rem;
+}
+
+.member-card h2 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+}
+
+.member-role {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.member-card .info-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+.member-card .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eef0ff;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.member-card .info-item:last-child {
+    border-bottom: none;
+}
+
+.member-card .info-item .label {
+    color: #888;
+    font-weight: 500;
+}
+
+.member-card .info-item .value {
+    color: #333;
+    font-weight: 500;
+}
+
+/* ---- 个人头像（旧，保留兼容） ---- */
 .profile-section {
     text-align: center;
     margin-bottom: 2rem;
@@ -200,6 +306,18 @@ body {
 }
 
 /* ---- 响应式 ---- */
+@media (max-width: 640px) {
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-card {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 1.5rem 1rem;
