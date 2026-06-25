@@ -1,0 +1,33 @@
+# ========================================
+# Docker Compose — Lab 12 Final Work
+# 编排个人网站 + Todo 应用部署到同一服务器
+# ========================================
+
+services:
+  # ---- 服务 1: 个人网站 (端口 80) ----
+  personal-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: personal-website
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      - lab12-network
+
+  # ---- 服务 2: Todo 应用 (端口 8080) ----
+  todo-app:
+    build:
+      context: ./todo-app
+      dockerfile: Dockerfile
+    container_name: todo-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - lab12-network
+
+networks:
+  lab12-network:
+    driver: bridge

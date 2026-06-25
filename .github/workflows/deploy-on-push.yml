@@ -1,23 +1,44 @@
-name: deploy on push
+name: Deploy with Docker Compose (AWS EC2)
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  deploy-app:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: copy file to server
+      - name: Copy project files to EC2
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USER_NAME }}
-          port: ${{ secrets.SSH_PORT }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          source: "./html/*"
-          target: "/var/www/html"
-          strip_components: 1
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          port: ${{ secrets.AWS_PORT || 22 }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          source: "."
+          target: "/home/${{ secrets.AWS_USER }}/lab12-deploy"
+
+      - name: SSH into EC2 and deploy with Docker Compose
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          port: ${{ secrets.AWS_PORT || 22 }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            set -e
+            cd /home/${{ secrets.AWS_USER }}/lab12-deploy
+            echo "🔨 构建并启动 Docker 容器..."
+            sudo docker compose down --remove-orphans 2>/dev/null || true
+            sudo docker compose up --build -d
+            echo ""
+            sudo docker compose ps
+            echo ""
+            PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
+            echo "✅ 部署完成!"
+            echo "   🌐 个人网站: http://$PUBLIC_IP"
+            echo "   ✅ Todo App:  http://$PUBLIC_IP:8080"

@@ -1,0 +1,16 @@
+# Lab 12 Final Work — .gitignore
+
+# 个人照片（请勿提交占位照片）
+photo.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>我的部署作业</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站 — Lab 12 Final Work</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>gaojingyuan</h1>
-    <p>自动化部署测试成功</p>
+    <div class="container">
+        <!-- 个人头像 -->
+        <div class="profile-section">
+            <div class="avatar">
+                <img src="photo.jpg" alt="个人照片" id="profilePhoto"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar-placeholder" style="display:none;">
+                    <span>📷</span>
+                    <p>请替换为你的真实照片<br><small>将照片命名为 photo.jpg 放在 html/ 目录下</small></p>
+                </div>
+            </div>
+
+            <h1>高靖远</h1>
+            <p class="subtitle">Gao Jingyuan</p>
+
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="label">学号</span>
+                    <span class="value">20242166</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">学院</span>
+                    <span class="value">计算机科学与工程学院</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">学校</span>
+                    <span class="value">北方民族大学</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">合作院校</span>
+                    <span class="value">清迈大学 (CAMT)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 个人简介 -->
+        <div class="section">
+            <h2>👋 关于我</h2>
+            <p>
+                我是一名计算机科学与技术专业的学生，目前正在学习 DevOps、
+                容器化部署和 CI/CD 持续集成与持续部署技术。
+                本项目是 Lab 12 Final Work，涵盖了 Docker、Docker Compose、
+                GitHub Actions 等现代 DevOps 工具链的实践。
+            </p>
+        </div>
+
+        <!-- 技能标签 -->
+        <div class="section">
+            <h2>🛠️ 技术栈</h2>
+            <div class="skills">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Docker Compose</span>
+                <span class="skill-tag">GitHub Actions</span>
+                <span class="skill-tag">Nginx</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Git</span>
+            </div>
+        </div>
+
+        <!-- 项目链接 -->
+        <div class="section">
+            <h2>📂 应用链接</h2>
+            <div class="links">
+                <a href="http://localhost:8080" class="btn" target="_blank">
+                    🌐 个人网站
+                </a>
+                <a href="http://localhost:8080" class="btn btn-todo" target="_blank">
+                    ✅ Todo 应用
+                </a>
+            </div>
+            <p class="note">* 部署后请替换为实际的服务器域名或 IP 地址</p>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>
+                Academic cooperation between
+                <strong>North Minzu University</strong> &amp;
+                <strong>Chiang Mai University (CAMT)</strong>
+            </p>
+            <p>Academic Year 2024 — Basic Development and Operation Lab 12</p>
+        </div>
+    </div>
 </body>
 </html>
