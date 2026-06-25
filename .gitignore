@@ -1,7 +1,7 @@
 # Lab 12 Final Work — .gitignore
 
-# 个人照片（请勿提交占位照片）
-photo.jpg
+# 个人照片（注意：已包含团队照片，不上传私人占位图）
+# photo.jpg 已取消排除，确保团队照片上传
 
 # OS files
 .DS_Store
