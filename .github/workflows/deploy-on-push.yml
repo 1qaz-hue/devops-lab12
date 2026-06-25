@@ -12,17 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Copy project files to EC2
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.AWS_HOST }}
-          username: ${{ secrets.AWS_USER }}
-          port: ${{ secrets.AWS_PORT || 22 }}
-          key: ${{ secrets.AWS_SSH_KEY }}
-          source: "."
-          target: "/home/${{ secrets.AWS_USER }}/lab12-deploy"
-
-      - name: SSH into EC2 and deploy with Docker Compose
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.AWS_HOST }}
@@ -31,7 +21,14 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             set -e
-            cd /home/${{ secrets.AWS_USER }}/lab12-deploy
+            cd /home/${{ secrets.AWS_USER }}
+            echo "📦 清理旧文件..."
+            sudo rm -rf lab12-deploy
+            
+            echo "📥 从 GitHub 克隆最新代码..."
+            sudo git clone https://github.com/1qaz-hue/devops-lab12.git lab12-deploy
+            cd lab12-deploy
+            
             echo "🔨 构建并启动 Docker 容器..."
             sudo docker compose down --remove-orphans 2>/dev/null || true
             sudo docker compose up --build -d
